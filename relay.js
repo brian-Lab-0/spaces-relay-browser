@@ -84,6 +84,14 @@ wss.on('connection', async (ws) => {
           break;
         }
 
+        case 'resize':
+          if (cmd.width && cmd.height) {
+            await page.setViewportSize({ width: Number(cmd.width), height: Number(cmd.height) });
+            await page.waitForTimeout(200);
+            await sendScreenshot();
+          }
+          break;
+
         case 'click':
           await page.mouse.click(Number(cmd.x), Number(cmd.y));
           await page.waitForTimeout(600);
