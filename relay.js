@@ -80,6 +80,14 @@ wss.on('connection', async (ws) => {
           let url = String(cmd.url || '').trim();
           if (!url.startsWith('http')) url = 'https://' + url;
           await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30_000 });
+          // Wait for content to stabilise — catches React/Vue/Next SPAs that hydrate after load
+          try {
+            await page.waitForFunction(
+              () => (document.body?.innerText?.trim().length ?? 0) > 100,
+              { timeout: 6000 }
+            );
+          } catch { /* image-heavy or intentionally minimal page — proceed */ }
+          await page.waitForTimeout(600); // brief settle for late JS renders
           await sendScreenshot(true);
           break;
         }
