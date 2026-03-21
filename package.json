@@ -1,0 +1,14 @@
+{
+  "name": "agent-browser-relay",
+  "version": "1.0.0",
+  "description": "Local WebSocket-to-Playwright relay for agent browser window",
+  "main": "relay.js",
+  "scripts": {
+    "start": "node relay.js",
+    "install-browser": "npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.44.0",
+    "ws": "^8.18.0"
+  }
+}
