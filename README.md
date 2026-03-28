@@ -226,7 +226,7 @@ The relay has no build step — it's plain Node.js. Edit `relay.js` and restart.
 
 ## Used By
 
-This relay is the official browser bridge for **[Spaces](https://github.com/brian-Lab-0)** — a multi-agent AI workspace platform built by the Spaces Dev Team.
+This relay is the official browser bridge for **[Spaces](https://spaces.openbnet.com)** — a multi-agent AI workspace platform built by the Spaces Dev Team.
 
 Spaces connects AI agents to real tools: browser automation, SSH terminals, canvas artifacts, a skills marketplace, and more.
 
